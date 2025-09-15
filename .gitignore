@@ -1,0 +1,53 @@
+# ===================================================================
+# ### Build Artifacts ###
+# 빌드 결과물 (jar, war) 및 컴파일된 클래스 파일
+# ===================================================================
+build/
+/target/
+*.jar
+*.war
+*.class
+
+
+
+# ===================================================================
+# ### Sensitive Configurations ###
+# 민감 정보가 포함될 수 있는 설정 파일 (DB 정보, API 키 등)
+# ===================================================================
+src/main/resources/application.yml
+
+/application-*.yml
+*.properties
+.env
+
+
+# ===================================================================
+# ### IDE Files ###
+# 각종 IDE 관련 설정 파일 (IntelliJ, Eclipse, VS Code)
+# ===================================================================
+.idea/
+/shelf/
+/workspace.xml
+/httpRequests/
+/mavenHomeManager.xml
+/dataSources/
+/dataSources.local.xml
+.classpath
+.project
+.settings/
+.vscode/
+
+
+# ===================================================================
+# ### Other ###
+# 로그 파일, OS 자동 생성 파일 등
+# ===================================================================
+# Log files
+*.log
+
+# OS Specific
+.DS_Store
+Thumbs.db
+
+# Docker (local)
+docker-compose.yml
