@@ -1,0 +1,61 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.5.3'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'org.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.10.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.0.1'
+    runtimeOnly 'mysql:mysql-connector-java:8.0.30' //DB
+    //lombok
+    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
+
+    // springdoc-openapi 의존성
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
+
+    // redis 의존성
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation 'org.apache.commons:commons-pool2'
+
+    // 검색용 엘라스틱서치
+    implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
+
+    //Spring Security
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    //jwt webtoken 의존성
+    implementation 'io.jsonwebtoken:jjwt-api:0.12.6' //JWT를 생성하고 파싱하는 데 필요한 인터페이스와 추상 클래스
+    runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.12.6' //JWT를 암호화하고, 서명을 생성하고, 유효성을 검증하는 등 실제 핵심 로직을 담당
+    runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.12.6' //JSON 문자열을 자바 객체로 변환하거나, 자바 객체를 JSON 문자열로 변환
+
+
+    //이미지파일 - nginx
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
